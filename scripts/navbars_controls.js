@@ -13,18 +13,26 @@ function init_navbars()
     simulator_nav_button.addEventListener("click", ()=>{
         simulator.style.display = "block";
         code.style.display = "none";
+        simulator_nav_button.classList.add("active");
+        code_nav_button.classList.remove("active");
     });
     code_nav_button.addEventListener("click", ()=>{
         code.style.display = "block";
         simulator.style.display = "none";
+        code_nav_button.classList.add("active");
+        simulator_nav_button.classList.remove("active");
     });
     commands_nav_button.addEventListener("click", ()=>{
         commands.style.display = "block";
         controls.style.display = "none";
+        commands_nav_button.classList.add("active");
+        controls_nav_button.classList.remove("active");
     });
     controls_nav_button.addEventListener("click", ()=>{
         controls.style.display = "block";
         commands.style.display = "none";
+        controls_nav_button.classList.add("active");
+        commands_nav_button.classList.remove("active");
     });
     
 
