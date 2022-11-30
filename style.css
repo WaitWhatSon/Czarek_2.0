@@ -53,3 +53,10 @@ footer{
     bottom: 0;
     margin: auto;
 }
+
+.in {
+    font-size: medium;
+    height: 24.5px;
+    float: right;
+    width: 100%;
+}
