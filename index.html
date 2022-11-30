@@ -30,10 +30,21 @@
 
         <div id="code_div" class="container-fluid p-0" style="display:none">
           <h5>Show code</h5>
-          <p>BASIA-GNERATED CODE WILL GO HERE</p>
+          <div class="container-fluid w-100 h-100">
+            <div class="row p-1">
+              <div class="col-md-12">
+                <textarea rows="10" style="width:100%;" id="code_display">Nothing here ¯\_(ツ)_/¯ click generate first</textarea>
+              </div>
+            </div>
+            <div class="row p-1">
+              <div class="col-md-12">
+                <button id="copy_code_button">Copy code</button>
+              </div>
+            </div>
+          </div>
         </div>
-
       </div>
+
       <div class="col-md-4 h-100 p-0" style="background-color:beige">
 
         <div class="topnav" id="right_topnav">
@@ -47,6 +58,8 @@
             <h6>Commands list:</h6>
             <div id="commands_list"></div>
             <button id="add_command_button">ADD COMMAND</button>
+            <button id="run_commands_button">RUN</button>
+            <button id="generate_code_button">GENERATE NXT CODE</button>
           </div>
         </div>
 
@@ -60,25 +73,25 @@
             </div>
             <div class="row p-1">
               <div class="col-md-6">left pin:</div>
-              <div class="col-md-6"><input class="in" id="left_motor_id"/></div>
+              <div class="col-md-6"><input class="in" id="left_motor_id" /></div>
             </div>
             <div class="row p-1">
               <div class="col-md-6">right pin:</div>
-              <div class="col-md-6"><input class="in" id="right_motor_id"/></div>
+              <div class="col-md-6"><input class="in" id="right_motor_id" /></div>
             </div>
             <div class="row p-1">
               <div class="col-md-12">
-              <br>
+                <br>
                 <h6>Offsets:</h6>
               </div>
             </div>
             <div class="row p-1">
               <div class="col-md-6">left offset:</div>
-              <div class="col-md-6"><input type="number" class="in" id="left_offset_id"/></div>
+              <div class="col-md-6"><input type="number" class="in" id="left_offset_id" /></div>
             </div>
             <div class="row p-1">
               <div class="col-md-6">right offset:</div>
-              <div class="col-md-6"><input type="number" class="in" id="right_offset_id"/></div>
+              <div class="col-md-6"><input type="number" class="in" id="right_offset_id" /></div>
             </div>
             <div class="row p-1">
               <div class="col-md-12">
@@ -88,11 +101,11 @@
             </div>
             <div class="row p-1">
               <div class="col-md-6">track width:</div>
-              <div class="col-md-6"><input type="number" class="in" id="track_width_id"/></div>
+              <div class="col-md-6"><input type="number" class="in" id="track_width_id" /></div>
             </div>
             <div class="row p-1">
               <div class="col-md-6">wheel diameter:</div>
-              <div class="col-md-6"><input type="number" class="in" id="diameter_id"/></div>
+              <div class="col-md-6"><input type="number" class="in" id="diameter_id" /></div>
             </div>
           </div>
         </div>

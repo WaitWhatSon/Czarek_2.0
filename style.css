@@ -38,6 +38,7 @@ footer{
 #commands_list{
     max-height: 65vh;
     overflow-y: scroll;
+    margin-bottom: 10px;
 }
 
 .delete_command_button{
