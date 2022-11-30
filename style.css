@@ -5,10 +5,28 @@ body{
 }
 
 .command-element{
-    background-color: rgb(80, 121, 255);
+    background-color: aliceblue;
     border-radius: 10px;
-    padding: 10px;
-    margin: 10px;
+    margin-bottom: 10px;
+}
+
+.command-element input{
+    font-size: medium;
+    height: 24.5px;
+    float: right;
+}
+
+.command-element select{
+    font-size: medium;
+    float: right;
+}
+
+.turn{
+    background-color: rgb(94, 255, 40);
+}
+
+.go{
+    background-color: rgb(56, 149, 255);
 }
 
 footer{
@@ -18,12 +36,20 @@ footer{
 }
 
 #commands_list{
-    max-height: 75vh;
+    max-height: 65vh;
     overflow-y: scroll;
 }
 
 .delete_command_button{
-    float: right;
     background-color: transparent;
     border-color: transparent;
+}
+
+.content_center {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
 }

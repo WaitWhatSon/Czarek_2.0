@@ -34,8 +34,6 @@ function init_navbars()
         controls_nav_button.classList.add("active");
         commands_nav_button.classList.remove("active");
     });
-    
-
 }
 
 export {init_navbars}
