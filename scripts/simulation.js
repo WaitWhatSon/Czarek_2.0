@@ -27,8 +27,7 @@ async function transform_current() {
 }
 
 async function go(direction, distance, power) {
-    if(power === 0)
-    {
+    if (power === 0) {
         return;
     }
     let vec;

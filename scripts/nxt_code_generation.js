@@ -7,8 +7,10 @@ function init_code_generator() {
 }
 
 function generate_script_test(test) {
+    
     console.log(test);
 
+    // PARAMETRY ROBOTA DO POBRANIA DO GENEROWANIA KODU:
     // LEWY SILNIK ID
     console.log(get_control_value("left_motor_id"));
     // PRAWY SILNIK ID
@@ -22,8 +24,25 @@ function generate_script_test(test) {
     // ŚREDNICA KÓŁKA
     console.log(get_control_value("diameter_id"));
 
-    // pamiętaj o kastowaniu na liczby jeśli potrzebujesz liczb
-    // parseInt()
+
+    // POBRANA LISTA POLECEŃ I PĘTLA (może się przydać)
+    const commands = get_commands_list();
+
+    for (let command of commands) {
+        if (command.type === "GO") {
+            // parametry jeśli "jedź"
+            // direction: "FORWARD" / "BACKWARD"
+            // distance: liczba
+            // power: liczba
+            // go(command.direction, command.distance, command.power);
+        }
+        else if (command.type === "TURN") {
+            // parametry jeśli "skręć"
+            // direction: "LEFT" / "RIGHT"
+            // power: liczba
+            // turn(command.direction, command.angle);
+        }
+    }
 
 
     // AKTUALIZUJ WYŚWIETLONY KOD
