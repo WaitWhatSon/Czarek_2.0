@@ -1,9 +1,12 @@
 import { enforceMinMax, preventEmpty } from "./inputs_validation.js"
 
+function init_commands_list() {
+    const command_button = document.getElementById("add_command_button");
+    command_button.addEventListener("click", create_command_block);
+}
+
 function create_command_block() {
-
     return new CommandElement();
-
 }
 
 class CommandElement {
@@ -24,14 +27,14 @@ class CommandElement {
 
         type_select.classList.add("col-sm-10");
         delete_button.classList.add("col-sm-2");
-        
+
         first_row.appendChild(type_select);
         first_row.appendChild(delete_button);
 
         this.block.appendChild(first_row);
 
-        let go_options = create_go_options();
-        let turn_options = create_turn_options();
+        let go_options = create_go_options(this);
+        let turn_options = create_turn_options(this);
 
         go_options.classList.add("row", "p-2");
         turn_options.classList.add("row", "p-2");
@@ -39,21 +42,27 @@ class CommandElement {
         this.block.appendChild(go_options);
         this.block.appendChild(turn_options);
 
+        this.type = undefined;
+
         type_select.addEventListener("change", (event) => {
             if (event.target.value === "GO") {
                 go_options.style.display = "block";
                 turn_options.style.display = "none";
                 this.block.classList.remove("turn");
                 this.block.classList.add("go");
+                this.type = "GO";
             }
             else if (event.target.value === "TURN") {
                 turn_options.style.display = "block";
                 go_options.style.display = "none";
                 this.block.classList.remove("go");
                 this.block.classList.add("turn");
+                this.type = "TURN";
             }
         });
 
+        // save ref
+        this.block.ref = this;
     }
 
     get block() {
@@ -69,8 +78,28 @@ class CommandElement {
         commands.removeChild(this.block);
     }
 
-}
+    get_command() {
+        if (this.type === "GO") {
+            return {
+                type: this.type,
+                direction: this.direction_select_fb.value,
+                distance: parseInt(this.distance_input.value),
+                power: parseInt(this.power_input.value)
+            }
+        }
+        else if (this.type === "TURN") {
+            return {
+                type: this.type,
+                direction: this.direction_select.value,
+                angle: parseInt(this.angle_input.value)
+            }
+        }
+        else {
+            return undefined;
+        }
+    }
 
+}
 
 function create_type_select() {
     let type_select = document.createElement("select");
@@ -92,25 +121,27 @@ function create_type_select() {
     return type_select;
 }
 
-function create_go_options() {
+function create_go_options(parent) {
     let div = document.createElement("div");
     div.style.display = "none";
 
     let direction_label = document.createElement("label");
     direction_label.innerHTML = "direction: ";
 
-    let direction_select = document.createElement("select");
+    let direction_select_fb = document.createElement("select");
+    parent.direction_select_fb = direction_select_fb;
     let option_forward = document.createElement("option");
     option_forward.innerHTML = "FORWARD";
     let option_backward = document.createElement("option");
     option_backward.innerHTML = "BACKWARD";
-    direction_select.appendChild(option_forward);
-    direction_select.appendChild(option_backward);
+    direction_select_fb.appendChild(option_forward);
+    direction_select_fb.appendChild(option_backward);
 
     let distance_label = document.createElement("label");
     distance_label.innerHTML = "distance: ";
 
     let distance_input = document.createElement("input");
+    parent.distance_input = distance_input;
     distance_input.type = "number";
     distance_input.min = 0;
     distance_input.max = 100;
@@ -122,15 +153,16 @@ function create_go_options() {
     power_label.innerHTML = "power: ";
 
     let power_input = document.createElement("input");
+    parent.power_input = power_input;
     power_input.type = "number";
     power_input.min = 0;
     power_input.max = 100;
-    power_input.defaultValue = 0;
+    power_input.defaultValue = 75;
     power_input.addEventListener("input", () => enforceMinMax(power_input));
     power_input.addEventListener("focusout", () => preventEmpty(power_input));
 
     div.appendChild(direction_label);
-    div.appendChild(direction_select);
+    div.appendChild(direction_select_fb);
     div.appendChild(document.createElement("br"));
     div.appendChild(distance_label);
     div.appendChild(distance_input);
@@ -141,7 +173,7 @@ function create_go_options() {
     return div;
 }
 
-function create_turn_options() {
+function create_turn_options(parent) {
     let div = document.createElement("div");
     div.style.display = "none";
 
@@ -149,6 +181,7 @@ function create_turn_options() {
     direction_label.innerHTML = "direction: ";
 
     let direction_select = document.createElement("select");
+    parent.direction_select = direction_select;
     let option_left = document.createElement("option");
     option_left.innerHTML = "LEFT";
     let option_right = document.createElement("option");
@@ -160,6 +193,7 @@ function create_turn_options() {
     angle_label.innerHTML = "angle: ";
 
     let angle_input = document.createElement("input");
+    parent.angle_input = angle_input;
     angle_input.type = "number";
     angle_input.min = 0;
     angle_input.max = 180;
@@ -172,7 +206,7 @@ function create_turn_options() {
     div.appendChild(document.createElement("br"));
     div.appendChild(angle_label);
     div.appendChild(angle_input);
-    
+
     return div;
 }
 
@@ -185,4 +219,4 @@ function create_delete_button(delete_function) {
     return delete_button;
 }
 
-export { create_command_block, }
+export { init_commands_list }

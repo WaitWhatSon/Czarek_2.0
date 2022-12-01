@@ -1,8 +1,12 @@
 import { get_control_value } from "./controls_functions.js";
 import { display_code_string } from "./display_code_string.js";
 
-function generate_script_test(test)
-{
+function init_code_generator() {
+    const code_button = document.getElementById("generate_code_button");
+    code_button.addEventListener("click", () => { generate_script_test("IMPORT TEST") });
+}
+
+function generate_script_test(test) {
     console.log(test);
 
     // LEWY SILNIK ID
@@ -27,4 +31,4 @@ function generate_script_test(test)
 
 }
 
-export {generate_script_test}
+export { init_code_generator }
