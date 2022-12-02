@@ -35,7 +35,10 @@ async function go(direction, distance, power) {
         vec = vec_forward;
     }
     else if (direction === "BACKWARD") {
-        vec = [vec_forward[0], -vec_forward[1]];
+        let angle = 180;
+        let _x = (vec_forward[0] * Math.cos(angle * Math.PI / 180)) - (vec_forward[1] * Math.sin(angle * Math.PI / 180));
+        let _y = (vec_forward[0] * Math.sin(angle * Math.PI / 180)) + (vec_forward[1] * Math.cos(angle * Math.PI / 180));
+        vec = [_x, _y];
     }
 
     for (let i = 0; i < distance; i++) {
@@ -98,8 +101,8 @@ async function init_simulation() {
     simulation.setAttribute('width', WIDTH);
 
     robot.svg = simulation.getElementById("robot");
-    robot.x = 100;
-    robot.y = 100;
+    robot.x = 225;
+    robot.y = 225;
     await transform_current();
 
     const run_button = document.getElementById("run_commands_button");

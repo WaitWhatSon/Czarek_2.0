@@ -1,5 +1,6 @@
 import { get_control_value } from "./controls_functions.js";
 import { display_code_string } from "./display_code_string.js";
+import { get_commands_list } from "./get_commands_list.js";
 
 function init_code_generator() {
     const code_button = document.getElementById("generate_code_button");

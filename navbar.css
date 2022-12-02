@@ -16,6 +16,8 @@
     text-decoration: none;
     font-size: 17px;
     height: 10vh;
+    margin-top: 5px;
+    border-radius: 10px 10px 0px 0px;
 }
 
 /* Change the color of links on hover */
@@ -27,11 +29,18 @@
 
 /* Add an active class to highlight the current page */
 .topnav .nav-but.active {
-    background-color: #04AA6D;
     color: white;
 }
 
-/* Hide the link that should open and close the topnav on small screens */
-.topnav .icon {
-    display: none;
+#commands_nav_button.active, #controls_nav_button.active {
+    background-color: #04AA6D;
+}
+
+#simulator_nav_button.active, #code_nav_button.active {
+    background-color: #46aa04;
+}
+
+#simulator-div {
+    text-align: center;
+    align-items: center;
 }
