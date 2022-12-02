@@ -1,7 +1,7 @@
 import { get_commands_list } from "./get_commands_list.js";
 
-const WIDTH = 512;
-const HEIGHT = 512;
+const WIDTH = 500;
+const HEIGHT = 500;
 
 const ROBOT_CX = 50;
 const ROBOT_CY = 50;
@@ -101,8 +101,8 @@ async function init_simulation() {
     simulation.setAttribute('width', WIDTH);
 
     robot.svg = simulation.getElementById("robot");
-    robot.x = 225;
-    robot.y = 225;
+    robot.x = 200;
+    robot.y = 200;
     await transform_current();
 
     const run_button = document.getElementById("run_commands_button");

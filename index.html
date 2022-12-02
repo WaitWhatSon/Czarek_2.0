@@ -16,24 +16,27 @@
 
   <div class="container-fluid w-100 h-100">
     <div class="row h-100">
-      <div class="col-md-8 h-100 p-0" style="background-color:azure">
+      <div class="col-md-8 h-100 p-0" style="background-color:#888">
 
         <div class="topnav" id="left_topnav">
           <div id="simulator_nav_button" class="active nav-but">Czarek simulator</div>
           <div id="code_nav_button" class="nav-but">Show code</div>
         </div>
 
-        <div id="simulator_div" class="container-fluid p-0">
-          <h5 width="100%" style="text-align: center">Czarek simulator</h5>
-          <div id="simulation_div" style="height: 90vh;">
-            <svg id="simulation_svg" width="100%" height="100%">
-              <image id="robot" x="0" y="0" width="100" height="100" href="./images/duck.svg" />
+        <div id="simulator_div" class="container-fluid p-0" style="width:100%">
+          <!-- <h5 style="position: absolute; text-align: center; width: 100%">Czarek simulator</h5> -->
+          <div id="simulation_div" style="height: 90vh; padding: 10px; align-items: center">
+            <svg id="simulation_svg" style="display: block; margin: auto; background-color:white">
+              <image id="robot" x="0" y="0" width="100" height="100" href="./images/czarek.svg" />
             </svg>
           </div>
         </div>
 
         <div id="code_div" class="container-fluid p-0" style="display:none">
-          <h5>Show code</h5>
+          <h5 style="margin: 10px; text-align: center; width: 100%">Show code</h5>
+          <div style="margin: 10px; text-align: center; width: 100%">
+            <button class="btn btn-light" id="generate_code_button">GENERATE NXT CODE</button>
+          </div>
           <div class="container-fluid w-100 h-100">
             <div class="row p-1">
               <div class="col-md-12">
@@ -43,14 +46,17 @@
             </div>
             <div class="row p-1">
               <div class="col-md-12">
-                <button id="copy_code_button">Copy code</button>
+                <button class="btn btn-light" id="copy_code_button" style="float: right">
+                  <div><span title="copy code to clipboard" class="material-icons" style="font-size: 24px">content_copy</span></div>
+                  <div>Copy code</div>
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="col-md-4 h-100 p-0" style="background-color:beige">
+      <div class="col-md-4 h-100 p-0" style="background-color:#ddd">
 
         <div class="topnav" id="right_topnav">
           <div id="commands_nav_button" class="active nav-but">Commands</div>
@@ -58,18 +64,20 @@
         </div>
 
         <div id="commands_div" class="container-fluid p-0">
-          <h5>Commands</h5>
+          <div style="padding: 10px; margin-bottom: 20px">
+            <h5 style="position: absolute; text-align: center; width: 97%">Commands list</h5>
+          </div>
           <div class="container-fluid">
-            <h6>Commands list:</h6>
             <div id="commands_list"></div>
-            <button id="add_command_button">ADD COMMAND</button>
-            <button id="run_commands_button">RUN</button>
-            <button id="generate_code_button">GENERATE NXT CODE</button>
+            <button id="add_command_button" class="btn btn-dark">ADD COMMAND</button>
+            <button id="run_commands_button" class="btn btn-dark">RUN</button>
           </div>
         </div>
 
         <div id="controls_div" class="container-fluid p-0" style="display:none">
-          <h5>Controls</h5>
+          <div style="padding: 10px; margin-bottom: 20px">
+            <h5 style="position: absolute; text-align: center; width: 87%">Controls</h5>
+          </div>
           <div class="container-fluid w-100 h-100">
             <div class="row p-1">
               <div class="col-md-12">

@@ -22,22 +22,24 @@
 
 /* Change the color of links on hover */
 .topnav .nav-but:hover {
-    background-color: #ddd;
+    background-color: #eee;
     color: black;
     cursor: pointer;
 }
 
 /* Add an active class to highlight the current page */
 .topnav .nav-but.active {
-    color: white;
+    font-weight: bold;
 }
 
 #commands_nav_button.active, #controls_nav_button.active {
-    background-color: #04AA6D;
+    background-color:#ddd;
+    color:#333;
 }
 
 #simulator_nav_button.active, #code_nav_button.active {
-    background-color: #46aa04;
+    background-color: #888;
+    color:#333;
 }
 
 #simulator-div {
