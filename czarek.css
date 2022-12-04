@@ -1,0 +1,6 @@
+#start_div {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    z-index: 1;
+    min-height: 592px;
+}

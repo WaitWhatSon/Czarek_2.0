@@ -4,7 +4,7 @@ const WIDTH = 500;
 const HEIGHT = 500;
 
 const ROBOT_CX = 50;
-const ROBOT_CY = 50;
+const ROBOT_CY = 25;
 
 const vec_forward = [0.0, -1.0];
 

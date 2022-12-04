@@ -68,9 +68,9 @@ function generate_defines(leftOffset, rightOffset) {
         frontOffset = frontOffset * (-1);
     }
 
-    return `#DEFINE LEFT_OFFSET ${leftOffset} \n\
-#DEFINE RIGHT_OFFSET ${rightOffset} \n\
-#DEFINE FRONT_OFFSET ${frontOffset}\n\n`;
+    return `#define LEFT_OFFSET ${leftOffset} \n\
+#define RIGHT_OFFSET ${rightOffset} \n\
+#define FRONT_OFFSET ${frontOffset}\n\n`;
 }
 
 
